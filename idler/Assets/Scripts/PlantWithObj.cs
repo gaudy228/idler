@@ -22,13 +22,13 @@ public class PlantWithObj : MonoBehaviour
         {
             countClickPlant--;
         }
-        if(countClickPlant <= 0)
+        if(countClickPlant <= 0 && !plantKill)
         {
             Destroy(Plant);
             Obj.GetComponent<Button>().enabled = true;
             plantKill = true;
         }
-        if (plantKill)
+        else if (plantKill)
         {
             countClickObj--;
         }

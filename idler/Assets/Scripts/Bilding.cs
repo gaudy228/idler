@@ -23,6 +23,7 @@ public class Bilding : MonoBehaviour
         if(materials.wood >= countWoodForBuy && materials.metal >= countMetalForBuy && !isBuy)
         {
             Destroy(RedFrame);
+            Destroy(whatIsIt);
             materials.wood -= countWoodForBuy;
             materials.metal -= countMetalForBuy;
             materials.TextUpDate();
