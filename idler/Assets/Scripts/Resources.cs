@@ -1,20 +1,15 @@
 using TMPro;
 using UnityEngine;
-
-public class MaterialsForBild : MonoBehaviour
+public class Resources : MonoBehaviour
 {
     public int wood;
     public int metal;
     [SerializeField] private TextMeshProUGUI woodText;
     [SerializeField] private TextMeshProUGUI metalText;
-    public void SetMaterialsWood(int Materials)
+    public void GetMaterials(int MaterialsWood, int MaterialsMetal)
     {
-        wood += Materials;
-        TextUpDate();
-    }
-    public void SetMaterialsMetal(int Materials)
-    {
-        metal += Materials;
+        wood += MaterialsWood;
+        metal += MaterialsMetal;
         TextUpDate();
     }
     public void TextUpDate()

@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Bilding : MonoBehaviour
 {
-    private MaterialsForBild materials;
+    private Resources resources;
     [SerializeField] private int countWoodForBuy;
     [SerializeField] private int countMetalForBuy;
     [SerializeField] private GameObject RedFrame;
@@ -16,17 +14,17 @@ public class Bilding : MonoBehaviour
     private void Start()
     {
         whatIsIt.text = buyText;
-        materials = gameObject.transform.parent.GetComponent<MaterialsForBild>();
+        resources = GameObject.FindWithTag("ManagerResources").GetComponent<Resources>();
     }
     public void Buy()
     {
-        if(materials.wood >= countWoodForBuy && materials.metal >= countMetalForBuy && !isBuy)
+        if(resources.wood >= countWoodForBuy && resources.metal >= countMetalForBuy && !isBuy)
         {
             Destroy(RedFrame);
             Destroy(whatIsIt);
-            materials.wood -= countWoodForBuy;
-            materials.metal -= countMetalForBuy;
-            materials.TextUpDate();
+            resources.wood -= countWoodForBuy;
+            resources.metal -= countMetalForBuy;
+            resources.TextUpDate();
             gameObject.GetComponent<Image>().color = Color.white;
             gameObject.GetComponent<Button>().enabled = false;
             isBuy = true;

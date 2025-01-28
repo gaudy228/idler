@@ -1,34 +1,35 @@
-using System.Collections;
 using UnityEngine;
 
 public class SpawnPlant : MonoBehaviour
 {
-    [SerializeField] private GameObject Plant;
-    [SerializeField] private GameObject prefabsPlant;
+    [SerializeField] private GameObject curPlant;
+    [SerializeField] private GameObject[] prefabsPlant;
     [SerializeField] private float minTimeSpawn;
     [SerializeField] private float maxTimeSpawn;
-    [SerializeField] private Transform stop;
-    [SerializeField] private MaterialsForBild material;
     private bool exist = true;
+    private float elapsedTime = 0;
     private void Update()
     {
-        if(Plant == null && exist)
+        if(curPlant == null && exist)
         {
-            StartCoroutine(TimeToSpawn(Random.Range(minTimeSpawn, maxTimeSpawn)));
             exist = false;
         }
+        if (!exist)
+        {
+            TimeToSpawn(Random.Range(minTimeSpawn, maxTimeSpawn));
+        }
     }
-    public IEnumerator TimeToSpawn(float time)
+    private void TimeToSpawn(float time)
     {
-        float elapsedTime = 0f;
-        while (elapsedTime <= time)
+        if(elapsedTime >= time)
+        {
+            curPlant = Instantiate(prefabsPlant[Random.Range(0, prefabsPlant.Length)], transform.position, Quaternion.identity);
+            exist = true;
+            elapsedTime = 0;
+        }
+        else
         {
             elapsedTime += Time.deltaTime;
-            yield return null;
         }
-        Plant = Instantiate(prefabsPlant, transform.position, Quaternion.identity);
-        Plant.GetComponent<PlantWithObj>().Initiation(stop, material);
-        Plant.transform.SetParent(transform, false);
-        exist = true;
     }
 }
