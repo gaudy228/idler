@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb52c431dc72fa64fb9ba3aeebb95a5b, type: 3}
   m_Name: Bench
   m_EditorClassIdentifier: 
-  Name: Trashcan
-  countWood: 0
-  countMetal: 2
-  pointDie: {x: 10, y: 0}
+  Name: Bench
+  countWood: 1
+  countMetal: 0
+  pointDie: {x: 13, y: 0}
+  objectWithPlant: {fileID: 21300000, guid: 3916c7a0a96dcd64ea144dd60596aa14, type: 3}
+  objectWithoutPlant: {fileID: 21300000, guid: 2edd507cb92433449b0a416e91f3da15, type: 3}

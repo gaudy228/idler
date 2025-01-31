@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpawnPlant : MonoBehaviour
 {
-    [SerializeField] private GameObject curPlant;
+    private GameObject curPlant;
     [SerializeField] private GameObject[] prefabsPlant;
     [SerializeField] private float minTimeSpawn;
     [SerializeField] private float maxTimeSpawn;

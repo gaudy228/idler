@@ -14,7 +14,7 @@ public class Resources : MonoBehaviour
     }
     public void TextUpDate()
     {
-        woodText.text = $"Доски: {wood}";
-        metalText.text = $"Металл: {metal}";
+        woodText.text = $"{wood}";
+        metalText.text = $"{metal}";
     }
 }

@@ -3,6 +3,10 @@ public class ObjectFromResources : ClickableObjects
 {
     [HideInInspector] public bool plantDead = false;
     [SerializeField] private ObjectFromResSO objectFromResSO;
+    public void ChangeSprite()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = objectFromResSO.objectWithoutPlant;
+    }
     protected override void GetDamage(int damage)
     {
         if (plantDead)

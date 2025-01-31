@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Trashcan
   countWood: 0
-  countMetal: 2
-  pointDie: {x: 10, y: 0}
+  countMetal: 1
+  pointDie: {x: 13, y: 0}
+  objectWithPlant: {fileID: 21300000, guid: 672444df1d5cfe94196d312f926e516f, type: 3}
+  objectWithoutPlant: {fileID: 21300000, guid: 5ded1830d98a4984fa82a6aece00110d, type: 3}

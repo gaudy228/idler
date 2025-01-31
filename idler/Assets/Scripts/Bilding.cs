@@ -7,27 +7,22 @@ public class Bilding : MonoBehaviour
     private Resources resources;
     [SerializeField] private int countWoodForBuy;
     [SerializeField] private int countMetalForBuy;
-    [SerializeField] private GameObject RedFrame;
-    [SerializeField] private TextMeshProUGUI whatIsIt;
-    [SerializeField] private string buyText;
-    private bool isBuy = false;
+    [SerializeField] private GameObject frame;
     private void Start()
     {
-        whatIsIt.text = buyText;
         resources = GameObject.FindWithTag("ManagerResources").GetComponent<Resources>();
     }
     public void Buy()
     {
-        if(resources.wood >= countWoodForBuy && resources.metal >= countMetalForBuy && !isBuy)
+        if (resources.wood >= countWoodForBuy && resources.metal >= countMetalForBuy)
         {
-            Destroy(RedFrame);
-            Destroy(whatIsIt);
             resources.wood -= countWoodForBuy;
             resources.metal -= countMetalForBuy;
             resources.TextUpDate();
             gameObject.GetComponent<Image>().color = Color.white;
-            gameObject.GetComponent<Button>().enabled = false;
-            isBuy = true;
+            gameObject.GetComponent<Button>().enabled = true;
+            Destroy(frame);
+
         }
     }
 }

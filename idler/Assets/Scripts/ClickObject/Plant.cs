@@ -6,6 +6,7 @@ public class Plant : ClickableObjects
         if (hp <= 0)
         {
             transform.parent.GetComponent<ObjectFromResources>().plantDead = true;
+            transform.parent.GetComponent<ObjectFromResources>().ChangeSprite();
             Destroy(gameObject);
         }
     }
